@@ -213,3 +213,17 @@ die scrollen kan tekst verspringen terwijl foto's laden.
   (o.a. `/wp-content/themes/smart-mag/js/lazyload.js`, `/wp-includes/js/dist/hooks.min.js`) matchen dan mogelijk
   niet meer, waardoor het menu en de foto's opnieuw kunnen breken.
 - Advies: niet aanzetten (geen meetbare winst, wel risico).
+
+## 2026-11-25 – Controle reCAPTCHA nieuwsbriefformulier (footer, Brevo)
+
+Post 33918, 375px (Android) en 1440px; formulier niet verstuurd.
+
+| Moment | `grecaptcha` | Badge rechtsonder | Token van Google |
+|---|---|---|---|
+| Vóór eerste scroll | niet geladen | nee | – |
+| Na scrollen naar footer | geladen | ja (zichtbaar) | ontvangen (2.660 / 2.766 tekens) |
+
+- reCAPTCHA v3, sitekey `6LepVh0u…`, blok `g-recaptcha-v3` in het formulier; geen JS-fouten.
+- Door 'JS-uitvoering uitstellen' laadt reCAPTCHA pas na de eerste interactie; bij scrollen naar de footer is het op tijd.
+- Niet gecontroleerd: het Brevo-formulierscript (`sibforms.com`, geblokkeerd in de cloudomgeving) en een echte inschrijving.
+Screenshots: `metingen/screenshots/2026-11-25_recaptcha-badge_*.png`.
