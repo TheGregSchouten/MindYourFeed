@@ -9,7 +9,11 @@
 - [ ] Ontbrekende metadata aanvullen, te beginnen bij de pagina's en de best bezochte posts.
 
 ## Snelheid en mobiel (afspraken 3, 4 en 5)
-- [ ] Nulmeting laadsnelheid (Lighthouse mobiel) van alle 35 pagina's en een steekproef van posts.
+- [ ] Nulmeting (Home en 1 post gedaan, zie `METINGEN.md`) laadsnelheid (Lighthouse mobiel) van alle 35 pagina's en een steekproef van posts.
+- [ ] Home: hero-slideshow lichter maken (kleinere/WebP-afbeeldingen, eerste slide niet lui laden, of minder slides).
+- [ ] WP Rocket-instellingen nalopen: CSS optimaliseren / ongebruikte CSS verwijderen, JavaScript uitstellen (render-blokkering ± 2,8 s).
+- [ ] Imagify: WebP-weergave aanzetten en controleren dat WebP ook echt geserveerd wordt.
+- [ ] Speedtest herhalen met PageSpeed Insights (inclusief advertenties en echte gebruikersdata).
 - [ ] Mobiele check op 375px en 768px van alle pagina's.
 - [ ] 9 afbeeldingen in oude posts staan op een externe Amazon S3-server; nagaan of ze naar de mediabibliotheek moeten.
 
