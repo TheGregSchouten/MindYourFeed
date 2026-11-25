@@ -1,7 +1,8 @@
 # Todo
 
 ## Nu
-- [ ] **Homepage kapot door RUCSS:** eigenaar wist de gebruikte CSS van de homepage (adminbalk → WP Rocket → Gebruikte CSS van deze URL wissen); daarna opnieuw vergelijken. Blijft het kapot: RUCSS uitzetten.
+- [ ] **Homepage kapot door RUCSS (wissen hielp niet):** eigenaar zet 'CSS-levering optimaliseren' uit in WP Rocket; daarna homepage opnieuw controleren.
+- [ ] Later: alternatief voor RUCSS onderzoeken (bijv. 'CSS asynchroon laden' of RUCSS met uitzonderingen voor de inline Elementor-CSS), eerst testen buiten de live site.
 - [ ] RUCSS: header ±17 px hoger en WhatsApp-icoon weg op Categorie/Contact; nagaan of safelist nodig is.
 
 ## Metadata en alt-teksten (afspraken 1 en 2)
