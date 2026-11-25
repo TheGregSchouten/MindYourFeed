@@ -50,6 +50,10 @@ Deze afspraken gelden voor elke pagina en elke blogpost die we aanmaken of wijzi
   vooraf een voorbeeld en het aantal posts dat het raakt.
 - **Kleine stappen.** Liever per pagina of in kleine batches, zodat terugdraaien
   eenvoudig blijft.
+- **Zelf committen bij voortgang.** Commit en push `WIJZIGINGEN.md`, `TODO.md` en
+  `CLAUDE.md` zelf zodra er voortgang is (een afgeronde taak, een wijziging aan de
+  site, een nieuwe afspraak), zonder dat eerst te vragen. Werk op de branch die de
+  sessie aangeeft.
 - **Gezondheidsclaims.** Inhoud over voeding en gezondheid moet kloppen; twijfelachtige
   claims markeren en niet zelf "gezonder" maken zonder bron.
 
@@ -68,3 +72,4 @@ Deze afspraken gelden voor elke pagina en elke blogpost die we aanmaken of wijzi
 ## Geschiedenis van afspraken
 
 - 2026-11-25: afspraken 1–9 en de werkwijze vastgelegd.
+- 2026-11-25: zelf committen en pushen bij voortgang.
