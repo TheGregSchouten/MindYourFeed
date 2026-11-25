@@ -1,8 +1,8 @@
 # Todo
 
 ## Nu
-- [ ] **Site traag na aanzetten RUCSS (2026-11-25 ±16:15):** PHP-verzoeken 20–60 s. Herstel volgen; als het niet binnen ±30 min herstelt: WP Rocket-voorladen (preload) tijdelijk uit of RUCSS uit, en hosting (PHP-workers/CPU) bekijken.
-- [ ] Na herstel: RUCSS visueel vergelijken met nulmeting (7 paginatypen × 3 breedtes) en meten.
+- [ ] **Homepage kapot door RUCSS:** eigenaar wist de gebruikte CSS van de homepage (adminbalk → WP Rocket → Gebruikte CSS van deze URL wissen); daarna opnieuw vergelijken. Blijft het kapot: RUCSS uitzetten.
+- [ ] RUCSS: header ±17 px hoger en WhatsApp-icoon weg op Categorie/Contact; nagaan of safelist nodig is.
 
 ## Metadata en alt-teksten (afspraken 1 en 2)
 - [ ] Nulmeting: per pagina en post nagaan of meta-title, meta-omschrijving, focus-keyword, samenvatting en uitgelichte afbeelding aanwezig zijn.
@@ -37,6 +37,7 @@
 - [ ] Dezelfde review uitvoeren op alle 2160 posts.
 
 ## Afgerond
+- [x] 2026-11-25: Site traag na aanzetten RUCSS (16:15–16:35), daarna vanzelf hersteld (home ±1,2–1,9 s).
 - [x] 2026-11-25: WP Rocket stap 1 (defer) actief, met jQuery-uitzondering; mobiel menu hersteld. Home 30 → 58.
 - [x] 2026-11-25: Lange taak van 2–3 s in `lazyload.js` (thema SmartMag) onderzocht: waarschijnlijk meetartefact van Lighthouse in de cloudcontainer; echte blokkeertijd komt van scripts van derden.
 - [x] 2026-11-25: Home-slideshow: 5 foto's vervangen door 1536px-WebP (3,1 MB → 0,9 MB), live en gecontroleerd op 375/768/1440px.
