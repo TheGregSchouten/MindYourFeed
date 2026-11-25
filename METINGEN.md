@@ -75,3 +75,40 @@ Twee runs; de cloudcontainer was tussen de voor- en nameting opnieuw opgestart.
 | Lazyload afbeeldingen/iframes/CSS-achtergronden | uit |
 | Ontbrekende afbeeldingsafmetingen toevoegen | uit |
 | Lettertypen lokaal hosten / voorladen | uit |
+
+## 2026-11-25 – Na WP Rocket stap 1: JavaScript uitgesteld laden (defer)
+
+Actief gecontroleerd: `defer_all_js = 1`; Home 24/33 en post 28/39 scripts met `defer`. Cache eerst opgewarmd.
+
+| Pagina | Run | Prestaties | FCP | LCP | TBT | CLS | Speed Index |
+|---|---|---|---|---|---|---|---|
+| Home | voor (na slideshow) | 30–31 | 4,8–5,1 s | 12,5–13,3 s | 1.770–2.110 ms | 0 | – |
+| Home | na 1 | 60 | 4,2 s | 10,5 s | 90 ms | 0 | 7,0 s |
+| Home | na 2 | 60 | 4,2 s | 11,8 s | 80 ms | 0 | 6,8 s |
+| Post 33918 | voor | 64 | 5,4 s | 5,7 s | 70 ms | 0 | – |
+| Post 33918 | na 1 | 66 | 4,8 s | 5,7 s | 10 ms | 0 | 5,6 s |
+| Post 33918 | na 2 | 65 | 4,7 s | 5,6 s | 10 ms | 0,001 | 5,8 s |
+
+- Nog ±2,1 s (Home) en ±2,6 s (post) render-blokkerende bronnen: vooral CSS → stap 3 (ongebruikte CSS).
+- SEO 92 in één run: `robots.txt` reageerde te traag (2–4 s, niet gecachet). Los van deze wijziging.
+
+### Functionele controle (375px en 1440px)
+| Onderdeel | Resultaat |
+|---|---|
+| Slideshow wisselt | ok |
+| Lazy foto's na scrollen | 14/14 geladen |
+| Loop-grids met recepten | ok (4, 4, 6, 3 items) |
+| Zoekveld hero | ok (`?s=pompoen`) |
+| Receptkaart (WPRM) | ok (7 ingrediënten) |
+| JavaScript-fouten | geen |
+| Horizontale scroll | geen |
+| **Mobiel menu (hamburger)** | **kapot**: klik doet niets, geen klik-handlers gekoppeld |
+
+### Oorzaak mobiel menu (getest met aangepaste HTML in de testbrowser)
+| Variant | Menu opent |
+|---|---|
+| Alles uitgesteld (live) | nee |
+| jQuery + jquery-migrate uitgezonderd | **ja** |
+| Alleen smartmenus uitgezonderd | nee (fout: jQuery is not defined) |
+| Elementor(-Pro) uitgezonderd | nee (fouten) |
+| Niets uitgesteld (vóór de wijziging) | ja |

@@ -1,7 +1,7 @@
 # Todo
 
 ## Nu
-- (niets)
+- [ ] **Mobiel menu herstellen:** in WP Rocket → Bestandsoptimalisatie → JavaScript uitgesteld laden → Uitgesloten JavaScript-bestanden: `/wp-includes/js/jquery/jquery.min.js` en `/wp-includes/js/jquery/jquery-migrate.min.js` toevoegen, opslaan; daarna opnieuw meten en menu testen.
 
 ## Metadata en alt-teksten (afspraken 1 en 2)
 - [ ] Nulmeting: per pagina en post nagaan of meta-title, meta-omschrijving, focus-keyword, samenvatting en uitgelichte afbeelding aanwezig zijn.
@@ -9,6 +9,7 @@
 - [ ] Ontbrekende metadata aanvullen, te beginnen bij de pagina's en de best bezochte posts.
 
 ## Snelheid en mobiel (afspraken 3, 4 en 5)
+- [ ] `robots.txt` reageert traag (2–4 s, niet gecachet); nagaan of WP Rocket/nginx hem kan cachen.
 - [ ] Nulmeting (Home en 1 post gedaan, zie `METINGEN.md`) laadsnelheid (Lighthouse mobiel) van alle 35 pagina's en een steekproef van posts.
 - [ ] WP Rocket stap voor stap aanzetten (door eigenaar in WP-admin; API kan alleen lezen), na elke stap meten en controleren of advertenties en receptkaarten werken: 1) JS defer, 2) JS-uitvoering uitstellen (delay) met uitzonderingen voor advertenties, 3) ongebruikte CSS verwijderen, 4) CSS/JS minify, 5) afbeeldingsafmetingen toevoegen. Zie `METINGEN.md`.
 - [ ] Snelheid van Home bevestigen met PageSpeed Insights (API-sleutel nodig of handmatig via pagespeed.web.dev).
