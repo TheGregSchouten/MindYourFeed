@@ -1,6 +1,7 @@
 # Todo
 
 ## Nu
+- [ ] **Delay JS: menu en foto's kapot.** Eigenaar voegt 5 uitzonderingen toe aan 'JavaScript-uitvoering uitstellen' (`BunyadLazy`, `/wp-includes/js/dist/hooks.min.js`, `/wp-includes/js/dist/i18n.min.js`, `wp.i18n`, `/wp-includes/js/imagesloaded.min.js`); daarna live controleren, visueel vergelijken en meten.
 - [ ] Later: alternatief voor RUCSS onderzoeken (bijv. 'CSS asynchroon laden' of RUCSS met uitzonderingen voor de inline Elementor-CSS), eerst testen buiten de live site.
 
 ## Metadata en alt-teksten (afspraken 1 en 2)
