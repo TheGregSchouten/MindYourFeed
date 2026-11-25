@@ -1,7 +1,7 @@
 # Todo
 
 ## Nu
-- (niets)
+- [ ] WP Rocket stap 3: 'Ongebruikte CSS verwijderen' staat nog uit (`remove_unused_css = 0`), alleen CSS-minify is aan. Nagaan waarom de optie niet is opgeslagen.
 
 ## Metadata en alt-teksten (afspraken 1 en 2)
 - [ ] Nulmeting: per pagina en post nagaan of meta-title, meta-omschrijving, focus-keyword, samenvatting en uitgelichte afbeelding aanwezig zijn.
@@ -9,6 +9,7 @@
 - [ ] Ontbrekende metadata aanvullen, te beginnen bij de pagina's en de best bezochte posts.
 
 ## Snelheid en mobiel (afspraken 3, 4 en 5)
+- [ ] Footer 'Instagram Feed' toont 'Error validating application' op elke pagina (Instagram-koppeling verlopen/ongeldig); koppeling vernieuwen of blok verwijderen.
 - [ ] `robots.txt` reageert traag (2–4 s, niet gecachet); nagaan of WP Rocket/nginx hem kan cachen.
 - [ ] Nulmeting (Home en 1 post gedaan, zie `METINGEN.md`) laadsnelheid (Lighthouse mobiel) van alle 35 pagina's en een steekproef van posts.
 - [ ] WP Rocket stap voor stap aanzetten (door eigenaar in WP-admin; API kan alleen lezen), na elke stap meten en controleren of advertenties en receptkaarten werken: 1) JS defer (klaar, met jQuery-uitzondering), 2) JS-uitvoering uitstellen (delay) met uitzonderingen voor advertenties, 3) ongebruikte CSS verwijderen, 4) CSS/JS minify, 5) afbeeldingsafmetingen toevoegen. Zie `METINGEN.md`.
