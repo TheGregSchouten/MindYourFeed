@@ -5,6 +5,7 @@ en de meetwaarden voor/na (Lighthouse mobiel: score, LCP).
 
 | Datum | Pagina / post | Wat is er gewijzigd | Waarom | Snelheid voor → na |
 |---|---|---|---|---|
+| 2026-11-25 | – (WordPress-gebruiker corigen) | Oud applicatiewachtwoord ingetrokken, nieuw wachtwoord in gebruik via het netwerkgeheim | Oude wachtwoord stond in een chatgesprek | – |
 | 2026-11-25 | – (cloudomgeving) | `www.mindyourfeed.nl` toegestaan en WordPress-login als netwerkgeheim opgeslagen | Veilige toegang tot de site vanuit cloudsessies | – |
 
 Nog geen wijzigingen aan de site zelf.

@@ -1,7 +1,7 @@
 # Todo
 
 ## Nu
-- [ ] Nieuw WordPress-applicatiewachtwoord aanmaken, het oude intrekken en het netwerkgeheim van de omgeving bijwerken (het oude staat in een chatgesprek).
+- (niets)
 
 ## Metadata en alt-teksten (afspraken 1 en 2)
 - [ ] Nulmeting: per pagina en post nagaan of meta-title, meta-omschrijving, focus-keyword, samenvatting en uitgelichte afbeelding aanwezig zijn.
@@ -27,6 +27,7 @@
 - [ ] Dezelfde review uitvoeren op alle 2160 posts.
 
 ## Afgerond
+- [x] 2026-11-25: Nieuw applicatiewachtwoord in gebruik, oude ingetrokken.
 - [x] 2026-11-25: WordPress-MCP-server en REST-toegang ingericht, login veilig opgeslagen.
 - [x] 2026-11-25: Review van de 100 oudste posts.
 - [x] 2026-11-25: Afspraken vastgelegd in `CLAUDE.md`.
