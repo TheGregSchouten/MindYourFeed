@@ -1,7 +1,7 @@
 # Todo
 
 ## Nu
-- [ ] **Mobiel menu herstellen:** in WP Rocket → Bestandsoptimalisatie → JavaScript uitgesteld laden → Uitgesloten JavaScript-bestanden: `/wp-includes/js/jquery/jquery.min.js` en `/wp-includes/js/jquery/jquery-migrate.min.js` toevoegen, opslaan; daarna opnieuw meten en menu testen.
+- (niets)
 
 ## Metadata en alt-teksten (afspraken 1 en 2)
 - [ ] Nulmeting: per pagina en post nagaan of meta-title, meta-omschrijving, focus-keyword, samenvatting en uitgelichte afbeelding aanwezig zijn.
@@ -11,7 +11,7 @@
 ## Snelheid en mobiel (afspraken 3, 4 en 5)
 - [ ] `robots.txt` reageert traag (2–4 s, niet gecachet); nagaan of WP Rocket/nginx hem kan cachen.
 - [ ] Nulmeting (Home en 1 post gedaan, zie `METINGEN.md`) laadsnelheid (Lighthouse mobiel) van alle 35 pagina's en een steekproef van posts.
-- [ ] WP Rocket stap voor stap aanzetten (door eigenaar in WP-admin; API kan alleen lezen), na elke stap meten en controleren of advertenties en receptkaarten werken: 1) JS defer, 2) JS-uitvoering uitstellen (delay) met uitzonderingen voor advertenties, 3) ongebruikte CSS verwijderen, 4) CSS/JS minify, 5) afbeeldingsafmetingen toevoegen. Zie `METINGEN.md`.
+- [ ] WP Rocket stap voor stap aanzetten (door eigenaar in WP-admin; API kan alleen lezen), na elke stap meten en controleren of advertenties en receptkaarten werken: 1) JS defer (klaar, met jQuery-uitzondering), 2) JS-uitvoering uitstellen (delay) met uitzonderingen voor advertenties, 3) ongebruikte CSS verwijderen, 4) CSS/JS minify, 5) afbeeldingsafmetingen toevoegen. Zie `METINGEN.md`.
 - [ ] Snelheid van Home bevestigen met PageSpeed Insights (API-sleutel nodig of handmatig via pagespeed.web.dev).
 - [ ] Home: eerste slide sneller tonen (slideshow wordt pas na JavaScript geladen; bijv. voorladen van de eerste foto).
 - [ ] WP Rocket-instellingen nalopen: CSS optimaliseren / ongebruikte CSS verwijderen, JavaScript uitstellen (render-blokkering ± 2,8 s).
@@ -35,6 +35,7 @@
 - [ ] Dezelfde review uitvoeren op alle 2160 posts.
 
 ## Afgerond
+- [x] 2026-11-25: WP Rocket stap 1 (defer) actief, met jQuery-uitzondering; mobiel menu hersteld. Home 30 → 58.
 - [x] 2026-11-25: Lange taak van 2–3 s in `lazyload.js` (thema SmartMag) onderzocht: waarschijnlijk meetartefact van Lighthouse in de cloudcontainer; echte blokkeertijd komt van scripts van derden.
 - [x] 2026-11-25: Home-slideshow: 5 foto's vervangen door 1536px-WebP (3,1 MB → 0,9 MB), live en gecontroleerd op 375/768/1440px.
 - [x] 2026-11-25: Nieuw applicatiewachtwoord in gebruik, oude ingetrokken.

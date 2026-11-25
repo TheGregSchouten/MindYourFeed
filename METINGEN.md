@@ -112,3 +112,16 @@ Actief gecontroleerd: `defer_all_js = 1`; Home 24/33 en post 28/39 scripts met `
 | Alleen smartmenus uitgezonderd | nee (fout: jQuery is not defined) |
 | Elementor(-Pro) uitgezonderd | nee (fouten) |
 | Niets uitgesteld (vóór de wijziging) | ja |
+
+## 2026-11-25 – Na uitzondering jQuery (defer blijft aan voor de overige 22 scripts)
+
+| Pagina | Run | Prestaties | FCP | LCP | TBT | CLS | Speed Index |
+|---|---|---|---|---|---|---|---|
+| Home | 1 | 58 | 4,5 s | 12,1 s | 160 ms | 0 | 7,0 s |
+| Home | 2 | 58 | 4,5 s | 12,4 s | 140 ms | 0,002 | 7,1 s |
+| Post 33918 | 1 | 64 | 5,0 s | 6,0 s | 90 ms | 0 | 5,8 s |
+| Post 33918 | 2 | 63 | 5,1 s | 5,3 s | 50 ms | 0 | 8,8 s |
+
+- Kosten van de uitzondering: ±2 punten en ±60 ms TBT; winst t.o.v. vóór stap 1 blijft groot (Home 30 → 58).
+- Mobiel menu: opent op home en post (375 en 768px), 8 zichtbare links, navigeren naar Weekmenu werkt.
+- SEO 92 in enkele runs: weer `robots.txt` (traag), los van deze wijziging.
