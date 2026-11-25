@@ -10,7 +10,8 @@
 
 ## Snelheid en mobiel (afspraken 3, 4 en 5)
 - [ ] Nulmeting (Home en 1 post gedaan, zie `METINGEN.md`) laadsnelheid (Lighthouse mobiel) van alle 35 pagina's en een steekproef van posts.
-- [ ] Home: slideshow-wijziging zichtbaar maken (Elementor-cache van de homepage verversen), daarna opnieuw meten en controleren op 375/768/1440px.
+- [ ] Home: lange taak van ±2 s na de eerste weergave onderzoeken (`lazyload.js` / WP Rocket lazyload, jQuery); drukt de score via TBT.
+- [ ] Snelheid van Home bevestigen met PageSpeed Insights (API-sleutel nodig of handmatig via pagespeed.web.dev).
 - [ ] Home: eerste slide sneller tonen (slideshow wordt pas na JavaScript geladen; bijv. voorladen van de eerste foto).
 - [ ] WP Rocket-instellingen nalopen: CSS optimaliseren / ongebruikte CSS verwijderen, JavaScript uitstellen (render-blokkering ± 2,8 s).
 - [ ] Imagify: WebP-weergave aanzetten en controleren dat WebP ook echt geserveerd wordt.
@@ -33,6 +34,7 @@
 - [ ] Dezelfde review uitvoeren op alle 2160 posts.
 
 ## Afgerond
+- [x] 2026-11-25: Home-slideshow: 5 foto's vervangen door 1536px-WebP (3,1 MB → 0,9 MB), live en gecontroleerd op 375/768/1440px.
 - [x] 2026-11-25: Nieuw applicatiewachtwoord in gebruik, oude ingetrokken.
 - [x] 2026-11-25: WordPress-MCP-server en REST-toegang ingericht, login veilig opgeslagen.
 - [x] 2026-11-25: Review van de 100 oudste posts.

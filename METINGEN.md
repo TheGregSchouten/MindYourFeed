@@ -26,3 +26,22 @@ Doelen (Google "goed"): LCP ≤ 2,5 s, CLS ≤ 0,1, TBT ≤ 200 ms.
   afbeeldingen buiten beeld ± 249 KiB.
 - Serverresponstijd 760 ms (WP Rocket-cache actief, nginx).
 - Lighthouse meldt HTTP/1.1; dat komt waarschijnlijk door de proxy van de cloudomgeving, niet door de server.
+
+## 2026-11-25 – Home na vervangen slideshowfoto's (1536px WebP)
+
+Twee runs; de cloudcontainer was tussen de voor- en nameting opnieuw opgestart.
+
+| Run | Prestaties | FCP | LCP | TBT | CLS | Paginagewicht | Afbeeldingen |
+|---|---|---|---|---|---|---|---|
+| Voor (1 run) | 55 | 4,8 s | 17,1 s | 180 ms | 0,001 | 4.660 KiB | 3.859 KiB |
+| Na, run 1 | 30 | 5,1 s | 13,3 s | 2.050 ms | 0 | 2.514 KiB | 1.699 KiB |
+| Na, run 2 | 30 | 4,8 s | 12,5 s | 2.110 ms | 0,003 | 2.514 KiB | 1.699 KiB |
+
+### Duiding
+- Gewicht −46%, afbeeldingen −2,1 MB, LCP ruim 4 s sneller; totale main-thread-tijd daalde van 7,1 s naar 5,6–6,4 s.
+- De lagere score komt volledig door TBT. Zowel vóór als na zit er één lange taak van 1,7–2,5 s in de pagina
+  (na: toegeschreven aan `lazyload.js` 10.5.2). Vóór viel die taak vóór de eerste weergave (telt niet mee voor TBT),
+  nu erna (telt wel mee). Waarschijnlijk dezelfde taak die verschuift doordat de foto's eerder binnen zijn,
+  geen extra werk. Niet bewezen: één voormeting, en de omgeving was herstart.
+- Controle met PageSpeed Insights nodig (gaf opnieuw 429, geen API-sleutel).
+- De oorzaak van die lange taak (lazyload/WP Rocket, jQuery) is een apart verbeterpunt.
