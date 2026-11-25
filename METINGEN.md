@@ -125,3 +125,18 @@ Actief gecontroleerd: `defer_all_js = 1`; Home 24/33 en post 28/39 scripts met `
 - Kosten van de uitzondering: ±2 punten en ±60 ms TBT; winst t.o.v. vóór stap 1 blijft groot (Home 30 → 58).
 - Mobiel menu: opent op home en post (375 en 768px), 8 zichtbare links, navigeren naar Weekmenu werkt.
 - SEO 92 in enkele runs: weer `robots.txt` (traag), los van deze wijziging.
+
+## 2026-11-25 – Nulmeting vóór WP Rocket stap 3 (ongebruikte CSS verwijderen)
+
+Lighthouse mobiel, 1 run per pagina (Home en post: zie meting hierboven, na jQuery-uitzondering).
+
+| Pagina | Prestaties | FCP | LCP | TBT | CLS | Render-blokkerend | Ongebruikte CSS |
+|---|---|---|---|---|---|---|---|
+| Home | 58 | 4,5 s | 12,1 s | 160 ms | 0 | ±2.460 ms | ±156 KiB |
+| Post 33918 | 64 | 5,0 s | 6,0 s | 90 ms | 0 | ±2.920 ms | ±188 KiB |
+| Categorie Weekmenu | 65 | 4,5 s | 4,6 s | 30 ms | 0,001 | ±2.300 ms | ±179 KiB |
+| Werk met mij (`/coaching/`) | 57 | 4,5 s | 7,7 s | 50 ms | 0,001 | ±2.500 ms | ±172 KiB |
+| Recepten index | 58 | 4,5 s | 6,8 s | 50 ms | 0 | ±2.370 ms | ±180 KiB |
+
+Visuele nulmeting: 35 screenshots (7 paginatypen × 375/768/1440px, volledige pagina + open mobiel menu) in de
+scratchpad van de sessie (77 MB, te groot voor de repository); worden na de wijziging pixel voor pixel vergeleken.
