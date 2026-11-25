@@ -1,7 +1,8 @@
 # Todo
 
 ## Nu
-- [ ] WP Rocket stap 3: 'Ongebruikte CSS verwijderen' staat nog uit (`remove_unused_css = 0`), alleen CSS-minify is aan. Nagaan waarom de optie niet is opgeslagen.
+- [ ] **Site traag na aanzetten RUCSS (2026-11-25 ±16:15):** PHP-verzoeken 20–60 s. Herstel volgen; als het niet binnen ±30 min herstelt: WP Rocket-voorladen (preload) tijdelijk uit of RUCSS uit, en hosting (PHP-workers/CPU) bekijken.
+- [ ] Na herstel: RUCSS visueel vergelijken met nulmeting (7 paginatypen × 3 breedtes) en meten.
 
 ## Metadata en alt-teksten (afspraken 1 en 2)
 - [ ] Nulmeting: per pagina en post nagaan of meta-title, meta-omschrijving, focus-keyword, samenvatting en uitgelichte afbeelding aanwezig zijn.
