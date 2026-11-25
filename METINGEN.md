@@ -203,3 +203,13 @@ die scrollen kan tekst verspringen terwijl foto's laden.
 - Verschillen in score vallen binnen de meetruis van deze omgeving. Winst zit in het voorkomen van verspringen
   tijdens scrollen bij echte bezoekers (CLS stond in de meting al op 0).
 - De Lighthouse-meldingen die overblijven gaan alleen over afbeeldingen op `mindyourfeed-1.s3.eu-central-1.amazonaws.com`.
+
+## 2026-11-25 – Vooronderzoek WP Rocket 'JavaScript-bestanden verkleinen'
+
+- Lighthouse 'Unminified JavaScript' scoort 1 (geen besparing) op Home, post 33918, categorie Weekmenu en de avocado-post.
+- 11 lokale scripts hebben geen `.min` in de naam (o.a. `theme.js`, `lazyload.js`, `jquery.mfp-lightbox.js`,
+  `public-modern-split.js` van WP Recipe Maker), maar zijn inhoudelijk al compact.
+- Risico: verkleinde bestanden krijgen een nieuw adres onder `/wp-content/cache/min/`; uitzonderingen op pad
+  (o.a. `/wp-content/themes/smart-mag/js/lazyload.js`, `/wp-includes/js/dist/hooks.min.js`) matchen dan mogelijk
+  niet meer, waardoor het menu en de foto's opnieuw kunnen breken.
+- Advies: niet aanzetten (geen meetbare winst, wel risico).

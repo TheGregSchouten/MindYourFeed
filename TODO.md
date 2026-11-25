@@ -13,7 +13,7 @@
 - [ ] Footer 'Instagram Feed' toont 'Error validating application' op elke pagina (Instagram-koppeling verlopen/ongeldig); koppeling vernieuwen of blok verwijderen.
 - [ ] `robots.txt` reageert traag (2–4 s, niet gecachet); nagaan of WP Rocket/nginx hem kan cachen.
 - [ ] Nulmeting (Home en 1 post gedaan, zie `METINGEN.md`) laadsnelheid (Lighthouse mobiel) van alle 35 pagina's en een steekproef van posts.
-- [ ] WP Rocket stap voor stap aanzetten (door eigenaar in WP-admin; API kan alleen lezen), na elke stap meten en controleren of advertenties en receptkaarten werken: 1) JS defer (klaar, met jQuery-uitzondering), 2) JS-uitvoering uitstellen (klaar, 13 uitzonderingen), 3) ongebruikte CSS verwijderen (geprobeerd, brak de homepage, weer uit; zie alternatief), 4) CSS-minify (klaar) / JS-minify, 5) afbeeldingsafmetingen toevoegen (klaar). Zie `METINGEN.md`.
+- [ ] WP Rocket stap voor stap aanzetten (door eigenaar in WP-admin; API kan alleen lezen), na elke stap meten en controleren of advertenties en receptkaarten werken: 1) JS defer (klaar, met jQuery-uitzondering), 2) JS-uitvoering uitstellen (klaar, 13 uitzonderingen), 3) ongebruikte CSS verwijderen (geprobeerd, brak de homepage, weer uit; zie alternatief), 4) CSS-minify (klaar) / JS-minify (afgeraden: geen winst, risico voor uitzonderingen), 5) afbeeldingsafmetingen toevoegen (klaar). Zie `METINGEN.md`.
 - [ ] Snelheid van Home bevestigen met PageSpeed Insights (API-sleutel nodig of handmatig via pagespeed.web.dev).
 - [ ] Home: eerste slide sneller tonen (slideshow wordt pas na JavaScript geladen; bijv. voorladen van de eerste foto).
 - [ ] WP Rocket-instellingen nalopen: CSS optimaliseren / ongebruikte CSS verwijderen, JavaScript uitstellen (render-blokkering ± 2,8 s).
