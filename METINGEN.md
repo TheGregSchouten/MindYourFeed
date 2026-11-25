@@ -150,3 +150,25 @@ scratchpad van de sessie (77 MB, te groot voor de repository); worden na de wijz
 
 - CSS-minify levert binnen de meetruis niets meetbaars op (Home 58 → 59).
 - Les: RUCSS laat de inline Elementor-pagina-CSS van de homepage weg; niet opnieuw aanzetten zonder test buiten de live site.
+
+## 2026-11-25 – Na WP Rocket stap 2: JavaScript-uitvoering uitstellen (13 uitzonderingen)
+
+| Pagina | Run | Prestaties | FCP | LCP | TBT | CLS | Speed Index | Verzoeken |
+|---|---|---|---|---|---|---|---|---|
+| Home | 1 | 59 | 4,6 s | 10,6 s | 80 ms | 0 | 7,1 s | 78 |
+| Home | 2 | 59 | 4,5 s | 10,6 s | 120 ms | 0 | 6,8 s | 78 |
+| Post 33918 | 1 | 63 | 5,0 s | 7,4 s | 30 ms | 0 | 5,4 s | 77 |
+| Post 33918 | 2 | 66 | 5,0 s | 5,6 s | 50 ms | 0 | 5,2 s | 78 |
+| Categorie Weekmenu | 1 | 68 | 4,3 s | 4,5 s | 20 ms | 0 | 8,3 s | 65 |
+| Categorie Weekmenu | 2 | 68 | 4,2 s | 5,3 s | 10 ms | 0 | 5,6 s | 65 |
+
+- In deze cloudomgeving nauwelijks verschil: de scripts die worden uitgesteld (advertenties, Facebook, GTM, reCAPTCHA,
+  Brevo, WonderPush, Grow, Shareaholic) worden hier sowieso geblokkeerd. De echte winst moet blijken uit
+  PageSpeed Insights / Rocket Insights (vorige GTmetrix-meting recept: TBT 3.794 ms, 936 verzoeken).
+- Lighthouse doet geen klik/scroll, dus uitgestelde scripts draaien tijdens de meting niet.
+
+Uitzonderingen 'JavaScript-uitvoering uitstellen':
+`/wp-includes/js/jquery/jquery.min.js`, `/wp-includes/js/jquery/jquery-migrate.min.js`, `/wp-content/plugins/elementor/`,
+`/wp-content/plugins/elementor-pro/`, `elementorFrontendConfig`, `ElementorProFrontendConfig`,
+`/wp-content/themes/smart-mag/js/lazyload.js`, `scripts.mediavine.com`, `BunyadLazy`,
+`/wp-includes/js/dist/hooks.min.js`, `/wp-includes/js/dist/i18n.min.js`, `wp.i18n`, `/wp-includes/js/imagesloaded.min.js`.
