@@ -1,6 +1,7 @@
 # Todo
 
 ## Nu
+- [ ] Nieuwsbriefformulier footer (Brevo) met reCAPTCHA v3 (onzichtbaar, sitekey `6LepVh0u…`): door 'JS-uitvoering uitstellen' laden `sibforms.com/…/main.js` en `google.com/recaptcha/api.js` pas na de eerste scroll/tik. Eigenaar test een echte inschrijving (badge rechtsonder zichtbaar? bevestigingsmelding? komt het adres in Brevo?). Als het misgaat: beide scripts uitzonderen van uitstellen.
 - [ ] Eigenaar: advertenties (Mediavine) controleren op telefoon, vóór en na eerste scroll; en snelheid laten meten met PageSpeed Insights of Rocket Insights (echte winst van stap 2 zichtbaar met advertenties).
 - [ ] Later: alternatief voor RUCSS onderzoeken (bijv. 'CSS asynchroon laden' of RUCSS met uitzonderingen voor de inline Elementor-CSS), eerst testen buiten de live site.
 
