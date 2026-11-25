@@ -140,3 +140,13 @@ Lighthouse mobiel, 1 run per pagina (Home en post: zie meting hierboven, na jQue
 
 Visuele nulmeting: 35 screenshots (7 paginatypen × 375/768/1440px, volledige pagina + open mobiel menu) in de
 scratchpad van de sessie (77 MB, te groot voor de repository); worden na de wijziging pixel voor pixel vergeleken.
+
+## 2026-11-25 – Na uitzetten RUCSS (defer + CSS-minify blijven aan)
+
+| Pagina | Run | Prestaties | FCP | LCP | TBT | CLS | Render-blokkerend |
+|---|---|---|---|---|---|---|---|
+| Home | 1 | 59 | 4,1 s | 12,3 s | 120 ms | 0 | ±2.080 ms |
+| Home | 2 | 59 | 4,7 s | 11,4 s | 60 ms | 0 | ±2.660 ms |
+
+- CSS-minify levert binnen de meetruis niets meetbaars op (Home 58 → 59).
+- Les: RUCSS laat de inline Elementor-pagina-CSS van de homepage weg; niet opnieuw aanzetten zonder test buiten de live site.

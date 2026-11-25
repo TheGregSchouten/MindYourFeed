@@ -1,9 +1,7 @@
 # Todo
 
 ## Nu
-- [ ] **Homepage kapot door RUCSS (wissen hielp niet):** eigenaar zet 'CSS-levering optimaliseren' uit in WP Rocket; daarna homepage opnieuw controleren.
 - [ ] Later: alternatief voor RUCSS onderzoeken (bijv. 'CSS asynchroon laden' of RUCSS met uitzonderingen voor de inline Elementor-CSS), eerst testen buiten de live site.
-- [ ] RUCSS: header ±17 px hoger en WhatsApp-icoon weg op Categorie/Contact; nagaan of safelist nodig is.
 
 ## Metadata en alt-teksten (afspraken 1 en 2)
 - [ ] Nulmeting: per pagina en post nagaan of meta-title, meta-omschrijving, focus-keyword, samenvatting en uitgelichte afbeelding aanwezig zijn.
@@ -14,7 +12,7 @@
 - [ ] Footer 'Instagram Feed' toont 'Error validating application' op elke pagina (Instagram-koppeling verlopen/ongeldig); koppeling vernieuwen of blok verwijderen.
 - [ ] `robots.txt` reageert traag (2–4 s, niet gecachet); nagaan of WP Rocket/nginx hem kan cachen.
 - [ ] Nulmeting (Home en 1 post gedaan, zie `METINGEN.md`) laadsnelheid (Lighthouse mobiel) van alle 35 pagina's en een steekproef van posts.
-- [ ] WP Rocket stap voor stap aanzetten (door eigenaar in WP-admin; API kan alleen lezen), na elke stap meten en controleren of advertenties en receptkaarten werken: 1) JS defer (klaar, met jQuery-uitzondering), 2) JS-uitvoering uitstellen (delay) met uitzonderingen voor advertenties, 3) ongebruikte CSS verwijderen, 4) CSS/JS minify, 5) afbeeldingsafmetingen toevoegen. Zie `METINGEN.md`.
+- [ ] WP Rocket stap voor stap aanzetten (door eigenaar in WP-admin; API kan alleen lezen), na elke stap meten en controleren of advertenties en receptkaarten werken: 1) JS defer (klaar, met jQuery-uitzondering), 2) JS-uitvoering uitstellen (delay) met uitzonderingen voor advertenties, 3) ongebruikte CSS verwijderen (geprobeerd, brak de homepage, weer uit; zie alternatief), 4) CSS-minify (klaar) / JS-minify, 5) afbeeldingsafmetingen toevoegen. Zie `METINGEN.md`.
 - [ ] Snelheid van Home bevestigen met PageSpeed Insights (API-sleutel nodig of handmatig via pagespeed.web.dev).
 - [ ] Home: eerste slide sneller tonen (slideshow wordt pas na JavaScript geladen; bijv. voorladen van de eerste foto).
 - [ ] WP Rocket-instellingen nalopen: CSS optimaliseren / ongebruikte CSS verwijderen, JavaScript uitstellen (render-blokkering ± 2,8 s).
@@ -38,6 +36,8 @@
 - [ ] Dezelfde review uitvoeren op alle 2160 posts.
 
 ## Afgerond
+- [x] 2026-11-25: RUCSS uitgezet na kapotte homepage; alle paginatypen visueel weer gelijk aan nulmeting. Home 59.
+- [x] 2026-11-25: CSS-minify aan en gecontroleerd (geen visuele schade).
 - [x] 2026-11-25: Site traag na aanzetten RUCSS (16:15–16:35), daarna vanzelf hersteld (home ±1,2–1,9 s).
 - [x] 2026-11-25: WP Rocket stap 1 (defer) actief, met jQuery-uitzondering; mobiel menu hersteld. Home 30 → 58.
 - [x] 2026-11-25: Lange taak van 2–3 s in `lazyload.js` (thema SmartMag) onderzocht: waarschijnlijk meetartefact van Lighthouse in de cloudcontainer; echte blokkeertijd komt van scripts van derden.
