@@ -190,3 +190,16 @@ Uitzonderingen 'JavaScript-uitvoering uitstellen':
 Visuele nulmeting: avocado, speculaas, post 33918 en Home op 375/768/1440px (scratchpad).
 Verwachting: kleine winst; CLS is in de meting al 0 (afbeeldingen staan onder de vouw), maar bij echte bezoekers
 die scrollen kan tekst verspringen terwijl foto's laden.
+
+## 2026-11-25 – Na WP Rocket stap 5 (ontbrekende afbeeldingsafmetingen toevoegen)
+
+| Pagina | Run | Prestaties | FCP | LCP | TBT | CLS | Lighthouse 'zonder afmetingen' |
+|---|---|---|---|---|---|---|---|
+| 20 x avocado recepten | 1 | 59 | 4,9 s | 7,4 s | 30 ms | 0 | 1 (S3) |
+| 20 x avocado recepten | 2 | 62 | 4,9 s | 7,3 s | 50 ms | 0,001 | 1 (S3) |
+| Zelf speculaaskruiden maken | 1 | 58 | 4,9 s | 7,6 s | 30 ms | 0,001 | 4 (S3) |
+| Zelf speculaaskruiden maken | 2 | 61 | 4,9 s | 7,8 s | 40 ms | 0 | 4 (S3) |
+
+- Verschillen in score vallen binnen de meetruis van deze omgeving. Winst zit in het voorkomen van verspringen
+  tijdens scrollen bij echte bezoekers (CLS stond in de meting al op 0).
+- De Lighthouse-meldingen die overblijven gaan alleen over afbeeldingen op `mindyourfeed-1.s3.eu-central-1.amazonaws.com`.

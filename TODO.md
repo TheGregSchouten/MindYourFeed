@@ -13,14 +13,14 @@
 - [ ] Footer 'Instagram Feed' toont 'Error validating application' op elke pagina (Instagram-koppeling verlopen/ongeldig); koppeling vernieuwen of blok verwijderen.
 - [ ] `robots.txt` reageert traag (2–4 s, niet gecachet); nagaan of WP Rocket/nginx hem kan cachen.
 - [ ] Nulmeting (Home en 1 post gedaan, zie `METINGEN.md`) laadsnelheid (Lighthouse mobiel) van alle 35 pagina's en een steekproef van posts.
-- [ ] WP Rocket stap voor stap aanzetten (door eigenaar in WP-admin; API kan alleen lezen), na elke stap meten en controleren of advertenties en receptkaarten werken: 1) JS defer (klaar, met jQuery-uitzondering), 2) JS-uitvoering uitstellen (klaar, 13 uitzonderingen), 3) ongebruikte CSS verwijderen (geprobeerd, brak de homepage, weer uit; zie alternatief), 4) CSS-minify (klaar) / JS-minify, 5) afbeeldingsafmetingen toevoegen. Zie `METINGEN.md`.
+- [ ] WP Rocket stap voor stap aanzetten (door eigenaar in WP-admin; API kan alleen lezen), na elke stap meten en controleren of advertenties en receptkaarten werken: 1) JS defer (klaar, met jQuery-uitzondering), 2) JS-uitvoering uitstellen (klaar, 13 uitzonderingen), 3) ongebruikte CSS verwijderen (geprobeerd, brak de homepage, weer uit; zie alternatief), 4) CSS-minify (klaar) / JS-minify, 5) afbeeldingsafmetingen toevoegen (klaar). Zie `METINGEN.md`.
 - [ ] Snelheid van Home bevestigen met PageSpeed Insights (API-sleutel nodig of handmatig via pagespeed.web.dev).
 - [ ] Home: eerste slide sneller tonen (slideshow wordt pas na JavaScript geladen; bijv. voorladen van de eerste foto).
 - [ ] WP Rocket-instellingen nalopen: CSS optimaliseren / ongebruikte CSS verwijderen, JavaScript uitstellen (render-blokkering ± 2,8 s).
 - [ ] Imagify: WebP-weergave aanzetten en controleren dat WebP ook echt geserveerd wordt.
 - [ ] Speedtest herhalen met PageSpeed Insights (inclusief advertenties en echte gebruikersdata).
 - [ ] Mobiele check op 375px en 768px van alle pagina's.
-- [ ] 9 afbeeldingen in oude posts staan op een externe Amazon S3-server; nagaan of ze naar de mediabibliotheek moeten.
+- [ ] Afbeeldingen in oude posts op de externe Amazon S3-server (`mindyourfeed-1.s3…`): o.a. 9 in de 100 oudste posts, 1 in '20 x avocado recepten', 4 in 'Zelf speculaaskruiden maken'. Ze krijgen geen afmetingen van WP Rocket en geen WebP; nagaan of ze naar de mediabibliotheek moeten.
 
 ## Naamgeving (afspraak 9)
 - [ ] Home: alle blokken heten "Container"; logische namen geven per sectie.
@@ -37,6 +37,7 @@
 - [ ] Dezelfde review uitvoeren op alle 2160 posts.
 
 ## Afgerond
+- [x] 2026-11-25: WP Rocket stap 5 (afbeeldingsafmetingen) actief en gecontroleerd; geen vervorming.
 - [x] 2026-11-25: WP Rocket stap 2 (JS-uitvoering uitstellen) actief met 13 uitzonderingen; menu, foto's, slideshow, zoeken, receptkaart en nieuwsbrief gecontroleerd.
 - [x] 2026-11-25: RUCSS uitgezet na kapotte homepage; alle paginatypen visueel weer gelijk aan nulmeting. Home 59.
 - [x] 2026-11-25: CSS-minify aan en gecontroleerd (geen visuele schade).
