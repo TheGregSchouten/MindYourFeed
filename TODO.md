@@ -1,6 +1,7 @@
 # Todo
 
 ## Nu
+- [ ] Kerstrecepten-formulier (`formulieren/nieuwsbrief-kerstrecepten.html`) eerst testen op een conceptpagina: zelfde ID's als het footerformulier (sib-form, EMAIL, OPT_IN …). Controleren dat beide formulieren werken (melding + adres in juiste Brevo-lijst). Werkt het niet samen: Brevo-iframe-variant gebruiken voor één van beide.
 - [ ] Nieuwsbriefformulier footer: reCAPTCHA v3 werkt live (badge + token na scrollen). Nog te doen door eigenaar: één echte testinschrijving (bevestigingsmelding? adres in Brevo?).
 - [ ] Eigenaar: advertenties (Mediavine) controleren op telefoon, vóór en na eerste scroll; en snelheid laten meten met PageSpeed Insights of Rocket Insights (echte winst van stap 2 zichtbaar met advertenties).
 - [ ] Later: alternatief voor RUCSS onderzoeken (bijv. 'CSS asynchroon laden' of RUCSS met uitzonderingen voor de inline Elementor-CSS), eerst testen buiten de live site.
