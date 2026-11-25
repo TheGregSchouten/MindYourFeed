@@ -172,3 +172,21 @@ Uitzonderingen 'JavaScript-uitvoering uitstellen':
 `/wp-content/plugins/elementor-pro/`, `elementorFrontendConfig`, `ElementorProFrontendConfig`,
 `/wp-content/themes/smart-mag/js/lazyload.js`, `scripts.mediavine.com`, `BunyadLazy`,
 `/wp-includes/js/dist/hooks.min.js`, `/wp-includes/js/dist/i18n.min.js`, `wp.i18n`, `/wp-includes/js/imagesloaded.min.js`.
+
+## 2026-11-25 – Nulmeting vóór WP Rocket stap 5 (ontbrekende afbeeldingsafmetingen toevoegen)
+
+- 7 vaste testpagina's: alle afbeeldingen hebben al breedte/hoogte, op 1 na (`Goulash-1-2.jpg`, terugkerend blok).
+- Steekproef 500 blogposts (REST-pagina's 1, 5, 10, 15, 20): 106 van 3.286 afbeeldingen zonder afmetingen (±3%),
+  verspreid over 17 posts, vooral uit 2016–2019. Meeste: "20 x avocado recepten" (ID 9265, 23 stuks) en
+  "Zelf speculaaskruiden maken" (ID 9752, 21 stuks).
+
+| Pagina | Run | Prestaties | FCP | LCP | TBT | CLS | Lighthouse 'afbeeldingen zonder afmetingen' |
+|---|---|---|---|---|---|---|---|
+| 20 x avocado recepten | 1 | 63 | 4,4 s | 5,7 s | 30 ms | 0 | 1 melding |
+| 20 x avocado recepten | 2 | 64 | 5,0 s | 6,6 s | 50 ms | 0 | 1 melding |
+| Zelf speculaaskruiden maken | 1 | 59 | 4,9 s | 7,6 s | 40 ms | 0 | 4 meldingen |
+| Zelf speculaaskruiden maken | 2 | 64 | 4,3 s | 6,3 s | 60 ms | 0 | 4 meldingen |
+
+Visuele nulmeting: avocado, speculaas, post 33918 en Home op 375/768/1440px (scratchpad).
+Verwachting: kleine winst; CLS is in de meting al 0 (afbeeldingen staan onder de vouw), maar bij echte bezoekers
+die scrollen kan tekst verspringen terwijl foto's laden.
