@@ -26,8 +26,10 @@
   Wijzigingen t.o.v. de Brevo-code:
     - alle inline opmaak vervangen door één stijlblok, afgeschermd met .myf-nieuwsbrief
     - Brevo-lettertype Roboto (van assets.brevo.com) weggelaten
-    - Engelse hulptekst "Provide your email address…" vertaald
-    - label "Opt-in" → "Toestemming"
+    - Engelse hulptekst "Provide your email address…" weggelaten (compact)
+    - labels visueel verborgen (blijven voor schermlezers); placeholders tonen wat er moet
+    - label "Opt-in" → "Toestemming" (alleen voor schermlezers)
+    - compacte opmaak: vanaf 768px voornaam + e-mail naast elkaar, vinkje + knop naast elkaar
     - "privacy statement" is een link naar /privacy-statement/
     - autocomplete="off" → given-name / email, plus inputmode="email" (beter invullen op mobiel)
     - honeypot-veld (email_address_check) altijd verborgen, ook als sib-styles.css niet laadt
@@ -39,7 +41,6 @@
     --myf-petrol: #38B6AC;
     --myf-petrol-hover: #2E9C93;
     --myf-mint: #BFE2E1;
-    --myf-grijs-licht: #F2F2F2;
     --myf-tekst: #4D5053;
     --myf-rood: #D02323;
     --myf-groen: #1E7A4A;
@@ -53,63 +54,69 @@
   .myf-nieuwsbrief *::before,
   .myf-nieuwsbrief *::after { box-sizing: border-box; }
 
-  /* Buitenste blok: mint met ronde hoeken, zoals het zoekblok op de homepage */
-  .myf-nieuwsbrief .sib-form {
-    background: transparent;
-    padding: 0;
-    text-align: left;
+  /* Alleen zichtbaar voor schermlezers */
+  .myf-nieuwsbrief .myf-sr {
+    position: absolute !important;
+    width: 1px; height: 1px;
+    margin: -1px; padding: 0;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    border: 0;
   }
+
+  /* Blok: mint met ronde hoeken, compact */
+  .myf-nieuwsbrief .sib-form { background: transparent; padding: 0; text-align: left; }
   .myf-nieuwsbrief .sib-form-container { padding: 0; }
   .myf-nieuwsbrief #sib-container {
     max-width: 100%;
     background: var(--myf-mint);
     border: 0;
-    border-radius: 30px;
-    padding: 28px 22px 26px;
+    border-radius: 24px;
+    padding: 18px 16px;
     text-align: left;
     direction: ltr;
   }
-  @media (min-width: 768px) {
-    .myf-nieuwsbrief #sib-container { padding: 36px 40px 34px; }
+  .myf-nieuwsbrief #sib-form {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
   }
-  .myf-nieuwsbrief #sib-form > div { padding: 6px 0; }
+  .myf-nieuwsbrief #sib-form > div { padding: 0; min-width: 0; }
+  .myf-nieuwsbrief .myf-verborgen { display: none; }
+  @media (min-width: 768px) {
+    .myf-nieuwsbrief #sib-container { padding: 22px 26px; }
+    .myf-nieuwsbrief #sib-form { grid-template-columns: 1fr 1fr; gap: 10px 12px; }
+    .myf-nieuwsbrief .myf-kop-rij,
+    .myf-nieuwsbrief .myf-intro-rij { grid-column: 1 / -1; }
+    .myf-nieuwsbrief .myf-optin-rij { grid-column: 1 / 2; align-self: center; }
+    .myf-nieuwsbrief .myf-knop-rij { grid-column: 2 / 3; align-self: center; }
+  }
 
   /* Kop */
   .myf-nieuwsbrief .myf-kop p {
     margin: 0;
     font-family: "Bebas Neue", "Open Sans", Arial, sans-serif;
     font-weight: 400;
-    font-size: 34px;
-    line-height: 1.05;
+    font-size: 28px;
+    line-height: 1;
     letter-spacing: 0.064em;
     text-transform: uppercase;
     color: var(--myf-petrol-donker);
   }
   @media (min-width: 768px) {
-    .myf-nieuwsbrief .myf-kop p { font-size: 44px; }
+    .myf-nieuwsbrief .myf-kop p { font-size: 32px; }
   }
 
   /* Introtekst */
   .myf-nieuwsbrief .myf-intro p {
     margin: 0;
     font-size: 16px;
-    line-height: 1.6;
+    line-height: 1.45;
     color: var(--myf-petrol-donker);
   }
 
-  /* Labels */
-  .myf-nieuwsbrief .entry__label {
-    display: block;
-    margin: 0 0 6px;
-    font-family: "Open Sans", Arial, sans-serif;
-    font-size: 16px;
-    font-weight: 600;
-    color: var(--myf-petrol-donker);
-    text-align: left;
-  }
-  .myf-nieuwsbrief .entry__label::after { content: none; }
-
-  /* Invoervelden: wit, 48px hoog (ruim boven het minimum van 44px voor tikken) */
+  /* Invoervelden: 44px hoog (minimum voor tikken) */
   .myf-nieuwsbrief .entry__field {
     background: #fff;
     border: 1px solid var(--myf-rand);
@@ -123,9 +130,9 @@
   .myf-nieuwsbrief .entry__field .input {
     display: block;
     width: 100%;
-    min-height: 48px;
+    min-height: 44px;
     margin: 0;
-    padding: 12px 14px;
+    padding: 9px 12px;
     border: 0;
     border-radius: 3px;
     background: transparent;
@@ -137,24 +144,15 @@
   }
   .myf-nieuwsbrief .entry__field .input::placeholder {
     font-family: "Open Sans", Arial, sans-serif;
-    color: #8A9A9C;
+    color: #6F8285;
     opacity: 1;
-  }
-
-  /* Hulptekst onder e-mailadres */
-  .myf-nieuwsbrief .entry__specification {
-    display: block;
-    margin-top: 6px;
-    font-size: 16px;
-    line-height: 1.5;
-    color: #4F6B70;
-    text-align: left;
   }
 
   /* Foutmelding per veld */
   .myf-nieuwsbrief .entry__error {
-    margin-top: 6px;
+    margin-top: 4px;
     font-size: 16px;
+    line-height: 1.35;
     color: var(--myf-rood);
     background: transparent;
     border: 0;
@@ -167,8 +165,8 @@
   /* Toestemming (checkbox) */
   .myf-nieuwsbrief .entry__choice label {
     display: flex;
-    align-items: flex-start;
-    gap: 12px;
+    align-items: center;
+    gap: 10px;
     min-height: 44px;
     cursor: pointer;
     text-align: left;
@@ -181,10 +179,10 @@
     margin: 0;
   }
   .myf-nieuwsbrief .entry__choice .checkbox {
-    flex: 0 0 24px;
-    width: 24px;
-    height: 24px;
-    margin: 2px 0 0 0 !important;
+    flex: 0 0 22px;
+    width: 22px;
+    height: 22px;
+    margin: 0 !important;
     position: relative;
     border: 2px solid var(--myf-petrol);
     border-radius: 3px;
@@ -197,10 +195,10 @@
   .myf-nieuwsbrief .entry__choice .input_replaced:checked + .checkbox::after {
     content: "";
     position: absolute;
-    left: 6px;
+    left: 5px;
     top: 1px;
     width: 7px;
-    height: 13px;
+    height: 12px;
     border: solid #fff;
     border-width: 0 3px 3px 0;
     transform: rotate(45deg);
@@ -212,7 +210,7 @@
   .myf-nieuwsbrief .myf-toestemming-tekst p {
     margin: 0;
     font-size: 16px;
-    line-height: 1.5;
+    line-height: 1.35;
     color: var(--myf-tekst);
   }
   .myf-nieuwsbrief a {
@@ -222,16 +220,16 @@
   }
   .myf-nieuwsbrief a:hover { color: var(--myf-petrol); }
 
-  /* Knop: zelfde petrol als de knoppen op de site */
+  /* Knop */
   .myf-nieuwsbrief .sib-form-block__button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 8px;
     width: 100%;
-    min-height: 48px;
+    min-height: 44px;
     margin: 0;
-    padding: 12px 28px;
+    padding: 10px 22px;
     border: 0;
     border-radius: 3px;
     background: var(--myf-petrol);
@@ -243,9 +241,6 @@
     color: #fff;
     cursor: pointer;
     transition: background-color 0.2s ease;
-  }
-  @media (min-width: 768px) {
-    .myf-nieuwsbrief .sib-form-block__button { width: auto; }
   }
   .myf-nieuwsbrief .sib-form-block__button:hover { background: var(--myf-petrol-hover); }
   .myf-nieuwsbrief .sib-form-block__button:focus-visible {
@@ -259,13 +254,13 @@
   .myf-nieuwsbrief .sib-form-message-panel {
     display: none;
     max-width: 100%;
-    margin: 0 0 14px;
-    padding: 14px 16px;
+    margin: 0 0 10px;
+    padding: 10px 14px;
     border: 1px solid;
     border-radius: 12px;
     font-family: "Open Sans", Arial, sans-serif;
     font-size: 16px;
-    line-height: 1.5;
+    line-height: 1.45;
     text-align: left;
   }
   .myf-nieuwsbrief .sib-form-message-panel--active { display: block; }
@@ -305,13 +300,13 @@
       <div id="sib-container" class="sib-container--large sib-container--vertical">
         <form id="sib-form" method="POST" action="https://84fed552.sibforms.com/serve/MUIFABlrZAFslHN_pckaWMmbqEAdnUZwlTp50zrJAKNFvFNaejDdag-SgMQ6vFnLx49cRLGjHvLY_NUlyFhXeuZiIgZ09vBl-vJKA3m8iJnsc-BG7EbdtJ2NNymqJxMYvZ5kYsu2D5Bdge2URBtHQzsasMbGe0Fvmn0LklFfTctbOlbhFR-8mQXlUmqHNMh11c5QNnTkZbcZH9Mu" data-type="subscription">
 
-          <div>
+          <div class="myf-kop-rij">
             <div class="sib-form-block myf-kop">
               <p>Mindyourfeed Kerstrecepten</p>
             </div>
           </div>
 
-          <div>
+          <div class="myf-intro-rij">
             <div class="sib-form-block myf-intro">
               <div class="sib-text-form-block">
                 <p>Schrijf je in voor de nieuwsbrief en ontvang de Kerstmenu Special met 5 complete kerstmenu&#39;s.</p>
@@ -319,11 +314,11 @@
             </div>
           </div>
 
-          <div>
+          <div class="myf-voornaam-rij">
             <div class="sib-input sib-form-block">
               <div class="form__entry entry_block">
                 <div class="form__label-row">
-                  <label class="entry__label" for="FIRSTNAME" data-required="*">Voornaam</label>
+                  <label class="entry__label myf-sr" for="FIRSTNAME" data-required="*">Voornaam</label>
                   <div class="entry__field">
                     <input class="input" maxlength="200" type="text" id="FIRSTNAME" name="FIRSTNAME" autocomplete="given-name" placeholder="Voornaam" data-required="true" required />
                   </div>
@@ -333,26 +328,25 @@
             </div>
           </div>
 
-          <div>
+          <div class="myf-email-rij">
             <div class="sib-input sib-form-block">
               <div class="form__entry entry_block">
                 <div class="form__label-row">
-                  <label class="entry__label" for="EMAIL" data-required="*">E-mailadres</label>
+                  <label class="entry__label myf-sr" for="EMAIL" data-required="*">E-mailadres</label>
                   <div class="entry__field">
-                    <input class="input" type="text" inputmode="email" id="EMAIL" name="EMAIL" autocomplete="email" value="" placeholder="jouw@emailadres.nl" data-required="true" required />
+                    <input class="input" type="text" inputmode="email" id="EMAIL" name="EMAIL" autocomplete="email" value="" placeholder="E-mailadres" data-required="true" required />
                   </div>
                 </div>
                 <label class="entry__error entry__error--primary"></label>
-                <label class="entry__specification">Vul je e-mailadres in om je in te schrijven, bijvoorbeeld naam@voorbeeld.nl.</label>
               </div>
             </div>
           </div>
 
-          <div>
+          <div class="myf-optin-rij">
             <div class="sib-optin sib-form-block" data-required="true">
               <div class="form__entry entry_mcq">
                 <div class="form__label-row">
-                  <label class="entry__label" for="OPT_IN" data-required="*">Toestemming</label>
+                  <label class="entry__label myf-sr" for="OPT_IN" data-required="*">Toestemming</label>
                   <div class="entry__choice">
                     <label>
                       <input type="checkbox" class="input_replaced" value="1" id="OPT_IN" name="OPT_IN" required />
@@ -365,11 +359,11 @@
             </div>
           </div>
 
-          <div>
+          <div class="myf-verborgen">
             <div class="g-recaptcha-v3" data-sitekey="6LepVh0uAAAAAAAVFHPGzSzvrhNOmvMj4Jyvhp9r" style="display: none"></div>
           </div>
 
-          <div>
+          <div class="myf-knop-rij">
             <div class="sib-form-block">
               <button class="sib-form-block__button sib-form-block__button-with-loader" form="sib-form" type="submit">
                 <svg class="icon clickable__icon progress-indicator__icon sib-hide-loader-icon" viewBox="0 0 512 512" aria-hidden="true">
