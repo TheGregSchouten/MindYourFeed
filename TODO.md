@@ -10,7 +10,8 @@
 
 ## Snelheid en mobiel (afspraken 3, 4 en 5)
 - [ ] Nulmeting (Home en 1 post gedaan, zie `METINGEN.md`) laadsnelheid (Lighthouse mobiel) van alle 35 pagina's en een steekproef van posts.
-- [ ] Home: hero-slideshow lichter maken (kleinere/WebP-afbeeldingen, eerste slide niet lui laden, of minder slides).
+- [ ] Home: slideshow-wijziging zichtbaar maken (Elementor-cache van de homepage verversen), daarna opnieuw meten en controleren op 375/768/1440px.
+- [ ] Home: eerste slide sneller tonen (slideshow wordt pas na JavaScript geladen; bijv. voorladen van de eerste foto).
 - [ ] WP Rocket-instellingen nalopen: CSS optimaliseren / ongebruikte CSS verwijderen, JavaScript uitstellen (render-blokkering ± 2,8 s).
 - [ ] Imagify: WebP-weergave aanzetten en controleren dat WebP ook echt geserveerd wordt.
 - [ ] Speedtest herhalen met PageSpeed Insights (inclusief advertenties en echte gebruikersdata).
@@ -18,6 +19,7 @@
 - [ ] 9 afbeeldingen in oude posts staan op een externe Amazon S3-server; nagaan of ze naar de mediabibliotheek moeten.
 
 ## Naamgeving (afspraak 9)
+- [ ] Home: alle blokken heten "Container"; logische namen geven per sectie.
 - [ ] Elementor-pagina's (Werk met mij, Persoonlijk Hormoon Traject, Popup Modal) nalopen op element- en classnamen en de indeling in de navigator.
 
 ## Oude blogposts (review van de 100 oudste, 2013–2014)
