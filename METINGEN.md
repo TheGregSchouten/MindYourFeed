@@ -45,3 +45,33 @@ Twee runs; de cloudcontainer was tussen de voor- en nameting opnieuw opgestart.
   geen extra werk. Niet bewezen: één voormeting, en de omgeving was herstart.
 - Controle met PageSpeed Insights nodig (gaf opnieuw 429, geen API-sleutel).
 - De oorzaak van die lange taak (lazyload/WP Rocket, jQuery) is een apart verbeterpunt.
+
+## 2026-11-25 – Onderzoek naar de lange script-taak (Home)
+
+- **Herkomst:** `lazyload.js?ver=10.5.2` is de lazysizes-bibliotheek van het thema SmartMag, niet WP Rocket.
+  Het script laadt ±15 afbeeldingen in de receptblokken (`data-src`, `data-bgsrc`); uitzetten breekt die afbeeldingen.
+- **A/B-test in Lighthouse (gesimuleerd):** zonder dit script TBT 1.770 → 80 ms, maar dan laden die afbeeldingen niet.
+  Zonder de slideshow, JetElements of Instagram/Facebook-embed: geen verschil in TBT.
+- **Lighthouse met echte vertraging (devtools):** score 26, TBT 3.150–3.730 ms, taak van 2,7–3,1 s in `lazyload.js`.
+- **Gewone browser (Playwright, 4× tragere CPU, Android-UA, zelfde schermformaat), 6 runs:** langste taak 135–158 ms,
+  TBT 135–295 ms. De taak van 2–3 s komt daar niet voor, ook niet met animaties uit.
+- **Conclusie:** de taak van 2–3 s treedt alleen op binnen Lighthouse in deze cloudcontainer (geen GPU; de taak bestaat
+  vrijwel geheel uit wachten op het tekenen, met 660 animatie-events). Waarschijnlijk een meetartefact. Bevestigen
+  met PageSpeed Insights.
+- **Echte gebruikersmeting (Rocket Insights, GTmetrix, recept "Kipsaté marinade", mobiel, feb. 2026):** score 49,
+  TBT 3.794 ms, 7,9 MB en 936 verzoeken, volledig geladen na 19,3 s. Hier draaien de advertenties en andere scripts
+  van derden wel mee: dáár zit de echte blokkeertijd.
+
+### WP Rocket-instellingen (export, 2026-11-25)
+| Instelling | Stand |
+|---|---|
+| Cache (ook mobiel) | aan |
+| CDN | aan |
+| CSS-bestanden verkleinen (minify) | uit |
+| JavaScript-bestanden verkleinen (minify) | uit |
+| JavaScript uitgesteld laden (defer) | uit |
+| JavaScript-uitvoering uitstellen (delay) | uit |
+| Ongebruikte CSS verwijderen | uit (optimize_css_delivery staat wel op 1, maar zonder methode) |
+| Lazyload afbeeldingen/iframes/CSS-achtergronden | uit |
+| Ontbrekende afbeeldingsafmetingen toevoegen | uit |
+| Lettertypen lokaal hosten / voorladen | uit |
