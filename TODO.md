@@ -1,6 +1,7 @@
 # Todo
 
 ## Nu
+- [ ] **Carrousel /kerst/ kapot voor bezoekers:** eigenaar voegt bij 'JavaScript-uitvoering uitstellen' de uitzonderingen `/wp-includes/js/jquery/ui/core.min.js` en `uiBackCompat` toe; daarna live controleren (/kerst/ + menu/foto's op home en post).
 - [ ] Kerstrecepten-formulier (`formulieren/nieuwsbrief-kerstrecepten.html`) eerst testen op een conceptpagina: zelfde ID's als het footerformulier (sib-form, EMAIL, OPT_IN …). Controleren dat beide formulieren werken (melding + adres in juiste Brevo-lijst). Werkt het niet samen: Brevo-iframe-variant gebruiken voor één van beide.
 - [ ] Nieuwsbriefformulier footer: reCAPTCHA v3 werkt live (badge + token na scrollen). Nog te doen door eigenaar: één echte testinschrijving (bevestigingsmelding? adres in Brevo?).
 - [ ] Eigenaar: advertenties (Mediavine) controleren op telefoon, vóór en na eerste scroll; en snelheid laten meten met PageSpeed Insights of Rocket Insights (echte winst van stap 2 zichtbaar met advertenties).
