@@ -227,3 +227,16 @@ Post 33918, 375px (Android) en 1440px; formulier niet verstuurd.
 - Door 'JS-uitvoering uitstellen' laadt reCAPTCHA pas na de eerste interactie; bij scrollen naar de footer is het op tijd.
 - Niet gecontroleerd: het Brevo-formulierscript (`sibforms.com`, geblokkeerd in de cloudomgeving) en een echte inschrijving.
 Screenshots: `metingen/screenshots/2026-11-25_recaptcha-badge_*.png`.
+
+## 2026-11-27 – Na uitzondering jQuery UI (carrousel /kerst/)
+
+| Pagina | Run | Prestaties | FCP | LCP | TBT | CLS |
+|---|---|---|---|---|---|---|
+| Kerst (`/kerst/`) | 1 | 54 | 4,8 s | 8,2 s | 360 ms | 0 |
+| Kerst (`/kerst/`) | 2 | 62 | 5,0 s | 8,4 s | 60 ms | 0,011 |
+| Home | 1 | 60 | 4,1 s | 10,8 s | 140 ms | 0 |
+| Home | 2 | 61 | 4,1 s | 10,7 s | 80 ms | 0 |
+
+- Geen voormeting van /kerst/ (carrousel was kapot). Home niet trager dan vóór de uitzondering (59).
+- Uitzonderingen 'JavaScript-uitvoering uitstellen' nu 15: de 13 van 2026-11-25 plus
+  `/wp-includes/js/jquery/ui/core.min.js` en `uiBackCompat`.
